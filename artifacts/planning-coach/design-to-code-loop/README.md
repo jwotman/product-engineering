@@ -11,6 +11,8 @@ The process combined:
 
 Email Reading Surface v2 is the concrete worked example in this package because the private repository later identifies that port as the implementation that **proved the design-first delivery method**.
 
+The Email surface itself continued to evolve afterward. This package uses v2 as **process evidence**, not as a claim that every v2 interaction remains the current product surface.
+
 ## The loop
 
 ```mermaid
