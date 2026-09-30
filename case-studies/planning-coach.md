@@ -8,7 +8,8 @@
 **Status:** Working product developed through a supervised real-user pilot; source repository is private
 
 **Supporting artifact trail:** [Discord design and implementation](../artifacts/planning-coach/discord/README.md)  
-**Design-process artifact trail:** [Cross-model design-to-code loop](../artifacts/planning-coach/design-to-code-loop/README.md)
+**Design-process artifact trail:** [Cross-model design-to-code loop](../artifacts/planning-coach/design-to-code-loop/README.md)  
+**Architecture artifact trail:** [Product architecture and capability ownership](../artifacts/planning-coach/product-architecture/README.md)
 
 ---
 
@@ -472,7 +473,7 @@ As the number of AI-generated changes increased, informal review stopped being s
 
 The full repository remains private, but for an interviewer or engineering review I would walk through a small number of artifacts rather than the entire history:
 
-1. **Product architecture/capability map** — demonstrates ownership and seams.
+1. **[Product architecture and capability ownership](../artifacts/planning-coach/product-architecture/README.md)** — five product layers, three architecture invariants, concrete capability seams, and the failure modes those boundaries prevent.
 2. **Trial privacy/data-governance policy** — shows how product risk became concrete data rules.
 3. **[Discord design + implementation artifact trail](../artifacts/planning-coach/discord/README.md)** — channel research, interaction design, architecture correction, trust boundary, implementation slices, and a real-device investigation that changed the technical direction.
 4. **Contextual email review implementation** — shows the governed LLM pipeline, persistence, deterministic validation, and tests.
