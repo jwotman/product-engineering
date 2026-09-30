@@ -25,6 +25,8 @@ An AI-assisted planning product for college students, developed through a superv
 
 Planning Coach is the strongest example of how I approach product engineering because the difficult parts were not simply UI or backend implementation. The product had to reconcile user agency, privacy, connected email and documents, LLM interpretation, planning state, constrained external interfaces, and the risk of an AI system silently turning uncertain information into obligations.
 
+Supporting artifacts: [Discord design and implementation trail](artifacts/planning-coach/discord/README.md)
+
 The case study covers:
 
 - product discovery and scope evolution;
