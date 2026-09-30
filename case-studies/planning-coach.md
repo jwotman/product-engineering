@@ -7,6 +7,8 @@
 **Stack:** FastAPI, SQLAlchemy, PostgreSQL, Alembic, React/TypeScript, Railway, Anthropic, JMAP, OCR/document extraction, Discord  
 **Status:** Working product developed through a supervised real-user pilot; source repository is private
 
+**Supporting artifact trail:** [Discord design and implementation](../artifacts/planning-coach/discord/README.md)
+
 ---
 
 ## The product problem
@@ -471,7 +473,7 @@ The full repository remains private, but for an interviewer or engineering revie
 
 1. **Product architecture/capability map** — demonstrates ownership and seams.
 2. **Trial privacy/data-governance policy** — shows how product risk became concrete data rules.
-3. **Discord capability + implementation history** — a strong example of changing architecture when the original placement was wrong.
+3. **[Discord design + implementation artifact trail](../artifacts/planning-coach/discord/README.md)** — channel research, interaction design, architecture correction, trust boundary, implementation slices, and a real-device investigation that changed the technical direction.
 4. **Contextual email review implementation** — shows the governed LLM pipeline, persistence, deterministic validation, and tests.
 5. **A design-first component package** — shows the interaction contract, stateful wireframes, Code-produced API evidence, Design-produced gap analysis, port-ready component, and fidelity-validation rounds.
 6. **Agent orchestrator/reviewer skills** — shows how I use AI coding tools at team/process scale.
