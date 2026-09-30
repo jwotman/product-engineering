@@ -36,13 +36,13 @@ The case study covers:
 - custom AI-agent skills and a multi-agent review process;
 - turning product principles into executable engineering governance.
 
-### Weekend Render — supporting case study
+### [Weekend Render](case-studies/weekend-render.md) — supporting case study
 
 A cloud rendering workflow for Blender built around an on-demand Flamenco farm, RunPod GPUs, Railway, object storage, secure SSH transport, and a Blender add-on.
 
 Its strongest portfolio value is **technical discovery**: testing unfamiliar infrastructure against real components, rejecting assumptions that did not survive the POC, and evolving from "remote render" toward a durable cloud workflow that can continue after the local Blender process closes.
 
-A dedicated case study will follow.
+The case study focuses on rapid learning in unfamiliar infrastructure, evidence-driven architecture changes, real-cloud validation, and designing cost/reliability into the product rather than treating them as operations details.
 
 ### Terra Firma Shop — supporting case study
 
