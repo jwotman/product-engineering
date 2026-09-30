@@ -4,6 +4,17 @@ Discord became a useful test of the full Planning Coach product-engineering proc
 
 This package is a **public synthesis** of evidence from the private `planning-coach-v1` repository. It does not copy real student data, credentials, institutional identifiers, or private messages.
 
+
+## Interaction concept reviewed with the pilot student
+
+![Early Planning Coach Discord interaction concept](discord_interaction_concepts.png)
+
+*Early interaction concept showing both student-initiated actions and proactive Planning Coach prompts in Discord.*
+
+This concept was reviewed with the pilot student. Based on that review, the student expressed interest in **Discord as an interface for Planning Coach**. That signal helped justify continuing the channel investigation beyond a purely technical proof of concept.
+
+The image is preserved as **design evidence**, not as a claim that every illustrated interaction shipped exactly as drawn. The implementation subsequently changed as privacy/security work, capability ownership decisions, and real-device testing clarified what Discord should own and how it should behave.
+
 ## The sequence
 
 ```mermaid
