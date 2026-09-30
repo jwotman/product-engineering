@@ -2,7 +2,7 @@
 
 I am a technical product leader who works at the boundary between **product discovery, system design, and implementation**. My recent work has focused on using AI-native development tools to take ambiguous product problems through research, architecture, working software, testing, and iteration.
 
-This repository contains case studies from products I have built with AI coding agents. The source repositories remain private because they contain active product work and, in some cases, privacy-sensitive development context. I can provide private source access for technical review.
+This repository contains case studies from products I have built with AI coding agents. The source repositories remain private because they preserve the full development history and, in some cases, privacy-sensitive development context; some also contain active work. I can provide private source access for technical review.
 
 ## How I work
 

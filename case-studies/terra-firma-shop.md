@@ -5,7 +5,7 @@
 **Role:** Product owner, product engineer, and operator  
 **Implementation model:** AI-native development using Claude Code skills and headless agent workflows, with human judgment gates for brand, visual quality, and commercial decisions  
 **Stack:** Python, GeoPandas, Shapely, Matplotlib/Cairo, Pillow/OpenCV, Gemini-assisted visual workflows, Shopify, Playwright, Remotion, YAML/config-driven production systems  
-**Status:** Pre-launch commercial product; core production pipeline and storefront tooling are substantially implemented, with launch work still active
+**Status:** Pre-launch commercial product; core production pipeline and storefront tooling are substantially implemented; launch remained incomplete at the last recorded repository state
 
 **Supporting artifact trail:** [Production pipeline, evaluator debugging, storefront QA, and agentic production](../artifacts/terra-firma-shop/README.md)
 
