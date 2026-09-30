@@ -254,7 +254,131 @@ This turns "please remember the privacy principles" into something closer to a b
 
 ---
 
-## 6. A multi-agent review process instead of maker self-certification
+## 6. A cross-model design-to-code loop
+
+One of the more important processes I created for Planning Coach was a deliberate handoff loop between **me, GPT, Claude Design, and Claude Code**.
+
+The goal was to prevent the common AI-development failure where product thinking, interaction design, and implementation become three loosely connected conversations. Each model had a different job, and each handoff had to produce evidence that the next participant could verify.
+
+### Step 1 — Product interaction and architecture
+
+I worked with GPT on how a proposed feature fit into the overall product interaction model and architecture:
+
+- what capability owned the behavior;
+- what existing capabilities it interacted with;
+- what state was durable versus projected;
+- where the feature entered and returned;
+- what it was explicitly not allowed to own;
+- how the feature changed the wider product rather than only its own screen.
+
+I remained the product decision-maker. GPT was a reasoning partner for product architecture and for checking whether local feature decisions were coherent with the system as a whole.
+
+### Step 2 — Claude Design proved its understanding before designing
+
+Claude Design's first job was not to make a polished screen.
+
+It produced an **interaction contract** that expressed its understanding of the feature: states, transitions, ownership, actions, boundaries, and unresolved questions.
+
+That contract went through round trips with me and GPT until the interaction model was correct.
+
+This created an important checkpoint: visual work did not become the place where product behavior was accidentally invented.
+
+### Step 3 — Stateful wireframes, not happy-path mockups
+
+Claude Design then iterated on wireframes with me. The wireframes included the relevant **state model**, not just the normal populated screen.
+
+Depending on the capability, that could include:
+
+- loading;
+- empty;
+- partial or degraded;
+- stale;
+- error and retry;
+- long-content behavior;
+- mutation preview;
+- mutation success and failure;
+- conflict;
+- narrow/mobile and desktop treatment;
+- permission or authority absence.
+
+Most wireframe iteration was directly between me and Claude Design, with GPT used as a cross-check against the broader product interaction model and architecture.
+
+### Step 4 — Claude Code audited the real API for Design
+
+Before a design was treated as implementable, Claude Code inspected the repository and produced an API evidence/audit package.
+
+The formal Planning Coach delivery process required that evidence to include the real endpoints or client calls, request and response shapes, current loading/failure/conflict behavior, available mutations, existing client adapters, and any fields or behaviors that product authority required but the API did not yet support.
+
+Claude Design therefore designed against **the actual product wire**, not an imagined backend.
+
+### Step 5 — Design returned API gaps to Code
+
+Claude Design compared the intended interaction against the API evidence and produced a gap analysis when the experience required something the current API could not honestly support.
+
+That created a two-way contract between frontend design and backend implementation:
+
+**Code → Design:** here is what the application actually serves.  
+**Design → Code:** here is the smallest missing capability required by the accepted interaction.
+
+A missing endpoint was not hidden behind a fake front-end state or a disabled control that looked functional. The gap either had to be explicitly omitted for the slice or implemented and reviewed.
+
+### Step 6 — Design componentized the accepted prototype
+
+Once the interaction and API were reconciled, Claude Design converted the prototype into a **port-ready component** with:
+
+- component source and dependencies;
+- state/prop contract;
+- API-shaped fixtures;
+- canonical stories/state examples;
+- interaction inventory;
+- responsive behavior;
+- accessibility expectations;
+- empty/loading/failure/stale/mutation-result states;
+- test identifiers and handoff notes.
+
+The intended handoff was not "here is a picture; please rebuild this."
+
+It was: **here is the accepted component; put it into the real application and wire it to the verified seams.**
+
+Claude Code was explicitly not supposed to independently redesign the component during implementation. Small integration changes could still become necessary when the component met the real application, but those changes were recorded and returned to Design rather than silently becoming a different product.
+
+### Step 7 — Code ported and wired; Design checked the real result
+
+Claude Code then ported the component into the application, replaced design fixtures with the real client/API seam, and wired each displayed action to an authorized mutation.
+
+The in-application component was rendered in its real shell and state variants and sent back to Claude Design for fidelity review.
+
+The Planning Coach process required at least two rounds:
+
+1. **Port-fidelity review** — overall composition, hierarchy, state visibility, responsive treatment, and unintended implementation substitutions.
+2. **Wired-state review** — real data density, loading/empty/partial/stale/error states, mutation success/failure, return behavior, and mobile/desktop parity.
+
+Claude Code applied scoped corrections between rounds. Material deviations were recorded rather than normalized away.
+
+GPT could then provide another system-level check where a local design change had implications for the wider interaction model.
+
+### Step 8 — Independent review after design convergence
+
+Only after the design loop converged did the broader review board evaluate the implementation for integration, architecture, correctness, principles/privacy, and design fidelity.
+
+That ordering mattered. The review board was not a substitute for product/design collaboration, and Claude Design was not being asked to certify backend correctness.
+
+### Why I built this process
+
+The process separated four kinds of reasoning that AI tools tend to blur together:
+
+- **product/system reasoning** — what should exist and where it belongs;
+- **interaction design** — what the student experiences across states;
+- **implementation truth** — what the current application and APIs actually support;
+- **verification** — whether the port remains faithful and the system remains correct.
+
+The result was a repeatable design-first delivery method rather than a sequence of one-off prompts.
+
+It also made the AI tools more useful because each model received a narrower job and a better-grounded handoff from the previous step.
+
+---
+
+## 7. A multi-agent review process instead of maker self-certification
 
 I also created custom Claude Code skills for independent review.
 
@@ -288,7 +412,7 @@ The review system was a product-engineering response to that bottleneck.
 
 ---
 
-## 7. Engineering underneath the product work
+## 8. Engineering underneath the product work
 
 Planning Coach is not only a documentation exercise.
 
@@ -313,7 +437,7 @@ I use a strong bias toward narrow interfaces, idempotent writes, explicit state 
 
 ---
 
-## 8. What changed because evidence changed
+## 9. What changed because evidence changed
 
 One of the easiest ways to make a portfolio project look polished is to remove the wrong turns.
 
@@ -341,7 +465,7 @@ As the number of AI-generated changes increased, informal review stopped being s
 
 ---
 
-## 9. What I would show in a technical review
+## 10. What I would show in a technical review
 
 The full repository remains private, but for an interviewer or engineering review I would walk through a small number of artifacts rather than the entire history:
 
@@ -349,8 +473,9 @@ The full repository remains private, but for an interviewer or engineering revie
 2. **Trial privacy/data-governance policy** — shows how product risk became concrete data rules.
 3. **Discord capability + implementation history** — a strong example of changing architecture when the original placement was wrong.
 4. **Contextual email review implementation** — shows the governed LLM pipeline, persistence, deterministic validation, and tests.
-5. **Agent orchestrator/reviewer skills** — shows how I use AI coding tools at team/process scale.
-6. **Current application code and tests** — demonstrates that the case study corresponds to working software rather than a product-design exercise.
+5. **A design-first component package** — shows the interaction contract, stateful wireframes, Code-produced API evidence, Design-produced gap analysis, port-ready component, and fidelity-validation rounds.
+6. **Agent orchestrator/reviewer skills** — shows how I use AI coding tools at team/process scale.
+7. **Current application code and tests** — demonstrates that the case study corresponds to working software rather than a product-design exercise.
 
 Private source access can be provided for technical review.
 
