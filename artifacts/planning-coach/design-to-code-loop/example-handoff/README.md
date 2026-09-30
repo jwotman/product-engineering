@@ -16,6 +16,20 @@ The original package also contained governing contract/addendum documents and an
 
 To inspect the interactive references, keep `support.js` beside the `.dc.html` files and open a prototype in a browser.
 
+## What is included in this public handoff
+
+- `INSTRUCTIONS.md` — the actual Design → Code collaboration and port instructions.
+- `GAP-ANALYSIS.md` — the actual Design-side comparison against available APIs.
+- `EmailReader.api.js` — the actual adapter mapping the Design component to the production API shape.
+- `Planning Coach - Email Queue v0.1.dc.html` — executable queue reference.
+- `Planning Coach - Email Reader v0.1.dc.html` — executable desktop reader reference; source newsletter fixture replaced wholesale with synthetic content.
+- `Planning Coach - Email Reader Mobile v0.1.dc.html` — executable mobile reader reference; source newsletter fixture replaced wholesale with synthetic content.
+- `Planning Coach - Reference Picker v0.1.dc.html` — executable reference-picker interaction.
+- `support.js` — the Design-component runtime used by the `.dc.html` references.
+- `Planning Coach - Owner Decisions 2026-08-06 (Email).md` — product-owner rulings returned into the Design/Code loop.
+- `FIDELITY-PASS-RESPONSE-v1.md` — Design's response after reviewing the in-application port.
+
+
 ---
 
 # Handoff: Email Reading Surface (Reader · Mobile Reader · Queue)
