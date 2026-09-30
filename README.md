@@ -44,13 +44,13 @@ Its strongest portfolio value is **technical discovery**: testing unfamiliar inf
 
 The case study focuses on rapid learning in unfamiliar infrastructure, evidence-driven architecture changes, real-cloud validation, and designing cost/reliability into the product rather than treating them as operations details.
 
-### Terra Firma Shop — supporting case study
+### [Terra Firma Shop](case-studies/terra-firma-shop.md) — supporting case study
 
 A programmatic map-art product spanning geospatial data, rendering, AI-assisted visual production, e-commerce, Shopify, mobile storefront QA, and an agentic production workflow.
 
 Its strongest portfolio value is **breadth and autonomous product execution**: commercial research, product decisions, visual-system iteration, deterministic rendering, AI-assisted workflows, automation, and customer-facing QA.
 
-A dedicated case study will follow.
+The case study focuses on owning a product across business strategy, production engineering, AI-assisted creative work, storefront implementation, and launch operations.
 
 ## Technical range
 
