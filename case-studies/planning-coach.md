@@ -476,7 +476,7 @@ The full repository remains private, but for an interviewer or engineering revie
 2. **Trial privacy/data-governance policy** — shows how product risk became concrete data rules.
 3. **[Discord design + implementation artifact trail](../artifacts/planning-coach/discord/README.md)** — channel research, interaction design, architecture correction, trust boundary, implementation slices, and a real-device investigation that changed the technical direction.
 4. **Contextual email review implementation** — shows the governed LLM pipeline, persistence, deterministic validation, and tests.
-5. **[Cross-model design-to-code artifact trail](../artifacts/planning-coach/design-to-code-loop/README.md)** — shows product interaction reasoning, API evidence, Design gap analysis, a port-ready component, Code wiring, fidelity rounds, and how the method evolved.
+5. **[Cross-model design-to-code artifact trail](../artifacts/planning-coach/design-to-code-loop/README.md)** — includes the actual sanitized Email Reader v2 handoff: executable `.dc.html` prototypes, adapter JavaScript, API gap analysis, port instructions, owner rulings, and the returned fidelity review.
 6. **Agent orchestrator/reviewer skills** — shows how I use AI coding tools at team/process scale.
 7. **Current application code and tests** — demonstrates that the case study corresponds to working software rather than a product-design exercise.
 

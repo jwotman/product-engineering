@@ -33,6 +33,7 @@ flowchart LR
 
 | Artifact | What it demonstrates |
 |---|---|
+| **[Actual sanitized Email v2 handoff bundle](example-handoff/README.md)** | Executable Design prototypes, real adapter JS, implementation instructions, gap analysis, owner decisions, and the returned fidelity response |
 | [01 — Product interaction before UI](01-product-interaction-before-ui.md) | Product meaning, ownership, and system fit are decided before implementation |
 | [02 — API evidence and gap analysis](02-api-evidence-and-gap-analysis.md) | Code reports what actually exists; Design reports what the intended interaction still needs |
 | [03 — Port-ready component](03-port-ready-component.md) | Design produces something intended to be wired, not reinterpreted from screenshots |
@@ -41,6 +42,8 @@ flowchart LR
 | [06 — Method evolution](06-method-evolution.md) | The delivery process itself improved when an earlier convention created the wrong incentives |
 
 ## Worked example: Email Reading Surface v2
+
+**[Open the sanitized executable handoff bundle →](example-handoff/README.md)**
 
 The private repository records the Email Reading Surface v2 replacement port as a completed Design ↔ Code loop:
 

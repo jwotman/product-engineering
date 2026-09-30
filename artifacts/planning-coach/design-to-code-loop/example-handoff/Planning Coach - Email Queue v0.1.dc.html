@@ -1,0 +1,180 @@
+<!-- PUBLIC PORTFOLIO COPY: real-world fixture identity/content sanitized; interaction/code structure retained. -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #07090c; }
+body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #7fb0e6; } a:hover { color: #a8ccf0; }
+button { font-family: inherit; cursor: pointer; }
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-thumb { background: #232b35; border-radius: 5px; }
+</style>
+</helmet>
+<div data-screen-label="Email queue" style="min-height:100vh;background:#07090c;display:flex;flex-direction:column;align-items:center;padding:0 24px 60px;">
+
+  <div style="width:100%;max-width:760px;display:flex;align-items:center;gap:14px;padding:18px 2px 16px;">
+    <button title="Back to the board" style="width:34px;height:34px;border-radius:9px;background:transparent;border:1px solid #232b35;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="#9aa6b4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.18em;color:#5f6b7a;text-transform:uppercase;">Email</span>
+    <sc-if value="{{ hasBadge }}" hint-placeholder-val="{{ true }}">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#9aa6b4;background:#0d1219;border:1px solid #202a35;border-radius:999px;padding:4px 10px;white-space:nowrap;">{{ badgeLabel }}</span>
+    </sc-if>
+    <div style="flex:1;"></div>
+    <span style="font-size:11.5px;color:#5f6b7a;">{{ checkedLabel }}</span>
+  </div>
+
+  <!-- §C.6 non-normal screens -->
+  <sc-if value="{{ isStale }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;max-width:760px;background:#15110a;border:1px solid #6e5226;border-radius:12px;padding:13px 16px;display:flex;flex-direction:column;gap:3px;margin-bottom:12px;">
+      <span style="font-size:13px;font-weight:600;color:#eec288;">Mail was last checked yesterday at 9:12 PM.</span>
+      <span style="font-size:12px;color:#a58d5e;line-height:1.5;">Anything that arrived since then isn't here yet. The messages below are from before that.</span>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isPaused }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;max-width:760px;background:#0d1219;border:1px solid #2c4a63;border-radius:12px;padding:13px 16px;display:flex;flex-direction:column;gap:3px;margin-bottom:12px;">
+      <span style="font-size:13px;font-weight:600;color:#bcd2ec;">My reading is unavailable right now.</span>
+      <span style="font-size:12px;color:#8a95a3;line-height:1.5;">New mail still arrives and you can open, read, and decide on every message by hand. What's missing until I'm back: noticings, file text, and highlighted dates.</span>
+    </div>
+  </sc-if>
+  <sc-if value="{{ isBroken }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;max-width:760px;background:#1a0f12;border:1px solid #7a3b47;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;margin-bottom:12px;">
+      <span style="font-size:13px;font-weight:600;color:#e6a3ae;">Email isn't being checked right now.</span>
+      <span style="font-size:12px;color:#b07f88;line-height:1.5;">The connection to your mail stopped working on Tuesday. Nothing below is new since then, and nothing is lost — mail keeps arriving at your provider. Reconnecting picks up where it left off.</span>
+      <button style="align-self:flex-start;min-height:36px;background:#2a1219;border:1px solid #7a3b47;border-radius:9px;padding:0 14px;font-size:12.5px;font-weight:600;color:#e6a3ae;">Reconnect email</button>
+    </div>
+  </sc-if>
+
+  <!-- empty resting state -->
+  <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+    <div style="width:100%;max-width:760px;background:#0b0f15;border:1px solid #1a222c;border-radius:16px;padding:44px 24px;display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <span style="font-size:15px;font-weight:600;color:#8a95a3;">Nothing needs a decision.</span>
+      <span style="font-size:12px;color:#5f6b7a;">Checked mail 12 minutes ago.</span>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ showQueue }}" hint-placeholder-val="{{ true }}">
+  <div style="width:100%;max-width:760px;background:#0b0f15;border:1px solid #1a222c;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid #161d26;background:#0d1219;">
+      <span style="font-size:14px;font-weight:700;color:#eef1f6;">Needs a decision</span>
+      <div style="flex:1;"></div>
+      <button onClick="{{ toggleWhy }}" style="min-height:32px;background:transparent;border:none;padding:0 4px;font-size:11.5px;color:#6e7886;" style-hover="color:#9aa6b4;">Why this order? {{ whyCaret }}</button>
+    </div>
+    <sc-if value="{{ whyOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:11px 18px;border-bottom:1px solid #161d26;background:#0a0e14;display:flex;flex-direction:column;gap:4px;">
+        <p style="font-size:11.5px;color:#8a95a3;line-height:1.55;">Messages that may need a decision come first, oldest of those on top. A small set of fixed signals — sender you've acted on before, a file attached, sent only to you — can move a message up. The order never changes while you're reading.</p>
+        <span style="font-size:10px;color:#4c5a6a;">No message is hidden by this — everything is either here or on the quiet shelf below.</span>
+      </div>
+    </sc-if>
+
+    <!-- rows: source facts only (§C.2) -->
+    <button style="text-align:left;background:transparent;border:none;border-bottom:1px solid #10161e;padding:14px 18px;display:flex;align-items:center;gap:13px;" style-hover="background:#0d1219;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;">
+        <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-size:14px;font-weight:700;color:#eef1f6;">Northreach Arts Collective</span><span style="font-size:11px;color:#5f6b7a;">club · Mon 1:53 PM</span></div>
+        <span style="font-size:12.5px;color:#9aa6b4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Fwd: Arts Collective Move-In Newsletter</span>
+        <div style="display:flex;gap:6px;margin-top:2px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#9aa6b4;background:#10151d;border:1px solid #232b35;border-radius:999px;padding:3px 8px;">3 files</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#9aa6b4;background:#10151d;border:1px solid #232b35;border-radius:999px;padding:3px 8px;">11 links</span></div>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#eec288;background:#15110a;border:1px solid #6e5226;border-radius:999px;padding:4px 9px;white-space:nowrap;flex:none;">waiting on you</span>
+    </button>
+
+    <button style="text-align:left;background:transparent;border:none;border-bottom:1px solid #10161e;padding:14px 18px;display:flex;align-items:center;gap:13px;" style-hover="background:#0d1219;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;">
+        <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-size:14px;font-weight:700;color:#eef1f6;">Prof. Weinstein</span><span style="font-size:11px;color:#5f6b7a;">instructor · Mon 11:20 AM</span></div>
+        <span style="font-size:12.5px;color:#9aa6b4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Film Response 2 — submission window</span>
+        <div style="display:flex;gap:6px;margin-top:2px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#9aa6b4;background:#10151d;border:1px solid #232b35;border-radius:999px;padding:3px 8px;">sent only to you</span></div>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#b3a3e0;background:#120f1c;border:1px solid #4a3f78;border-radius:999px;padding:4px 9px;white-space:nowrap;flex:none;">partly decided</span>
+    </button>
+
+    <button style="text-align:left;background:transparent;border:none;border-bottom:1px solid #10161e;padding:14px 18px;display:flex;align-items:center;gap:13px;" style-hover="background:#0d1219;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;">
+        <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-size:14px;font-weight:700;color:#eef1f6;">Northreach Housing</span><span style="font-size:11px;color:#5f6b7a;">university office · Sun 4:02 PM</span></div>
+        <span style="font-size:12.5px;color:#9aa6b4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Your move-in time confirmation</span>
+      </div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#b3a3e0;background:#120f1c;border:1px solid #4a3f78;border-radius:999px;padding:4px 9px;white-space:nowrap;flex:none;">one thing to check</span>
+    </button>
+
+    <div style="display:flex;align-items:center;gap:13px;padding:14px 18px;">
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;">
+        <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-size:14px;font-weight:700;color:#8a95a3;">Orientation Team</span><span style="font-size:11px;color:#5f6b7a;">university office · Sat 9:00 AM</span></div>
+        <span style="font-size:12.5px;color:#6e7886;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Welcome week schedule (updated)</span>
+      </div>
+      <span style="font-size:11px;color:#5f6b7a;white-space:nowrap;flex:none;">handled for now · back Friday</span>
+    </div>
+  </div>
+
+  <!-- §F.10 failed-action home: reachable, never in the badge -->
+  <div style="width:100%;max-width:760px;background:#1a0f12;border:1px solid #7a3b47;border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;margin-top:12px;">
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;">
+      <span style="font-size:12.5px;font-weight:600;color:#e6a3ae;">One decision didn't finish saving</span>
+      <span style="font-size:11.5px;color:#b07f88;">"Add a date" from Prof. Weinstein's message, yesterday. Your decision is recorded — the date itself wasn't created.</span>
+    </div>
+    <button style="min-height:36px;background:#2a1219;border:1px solid #7a3b47;border-radius:9px;padding:0 13px;font-size:12px;font-weight:600;color:#e6a3ae;white-space:nowrap;flex:none;">Try again</button>
+  </div>
+
+  <!-- quiet shelf (§C.4) -->
+  <div style="width:100%;max-width:760px;margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+    <button onClick="{{ toggleShelf }}" style="text-align:left;background:transparent;border:none;padding:4px 2px;display:flex;align-items:center;gap:8px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#6a7686;text-transform:uppercase;">Quiet shelf · 2</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6a7686;">{{ shelfCaret }}</span>
+      <span style="font-size:10.5px;color:#4c5a6a;">probably not for you — never counted, never nagging</span>
+    </button>
+    <sc-if value="{{ shelfOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#0a0d11;border:1px solid #141a22;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid #10161e;">
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;">
+            <span style="font-size:12.5px;font-weight:600;color:#8a95a3;">Northreach University Dining · This week at the Student Center</span>
+            <span style="font-size:11px;color:#5f6b7a;">mailing list · Mon 8:00 AM</span>
+          </div>
+          <button style="min-height:32px;background:transparent;border:1px solid #232b35;border-radius:8px;padding:0 11px;font-size:11.5px;color:#9aa6b4;white-space:nowrap;">Open it</button>
+          <button style="min-height:32px;background:transparent;border:none;padding:0 6px;font-size:11.5px;color:#5f6b7a;white-space:nowrap;">Hide today</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;">
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;">
+            <span style="font-size:12.5px;font-weight:600;color:#8a95a3;">Adobe · Your Creative Cloud receipt</span>
+            <span style="font-size:11px;color:#5f6b7a;">automated · Sun 12:00 AM</span>
+          </div>
+          <button style="min-height:32px;background:transparent;border:1px solid #232b35;border-radius:8px;padding:0 11px;font-size:11.5px;color:#9aa6b4;white-space:nowrap;">Open it</button>
+          <button style="min-height:32px;background:transparent;border:none;padding:0 6px;font-size:11.5px;color:#5f6b7a;white-space:nowrap;">Hide today</button>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;ingestState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;normal&quot;,&quot;empty&quot;,&quot;stale&quot;,&quot;paused&quot;,&quot;broken&quot;],&quot;default&quot;:&quot;normal&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Queue state (§C.6)&quot;}}">
+class Component extends DCLogic {
+  state = { whyOpen: false, shelfOpen: false };
+  renderVals() {
+    const mode = this.props.ingestState ?? 'normal'; // normal | empty | stale | paused | broken
+    const isEmpty = mode === 'empty';
+    return {
+      isEmpty,
+      isStale: mode === 'stale',
+      isPaused: mode === 'paused',
+      isBroken: mode === 'broken',
+      showQueue: !isEmpty,
+      hasBadge: !isEmpty,
+      badgeLabel: '3 waiting on you',
+      checkedLabel: mode === 'stale' ? 'Last checked yesterday 9:12 PM' : mode === 'broken' ? 'Not being checked' : 'Checked mail 12 minutes ago',
+      whyOpen: this.state.whyOpen, whyCaret: this.state.whyOpen ? '▴' : '▾',
+      toggleWhy: () => this.setState(s => ({ whyOpen: !s.whyOpen })),
+      shelfOpen: this.state.shelfOpen, shelfCaret: this.state.shelfOpen ? '▴' : '▸',
+      toggleShelf: () => this.setState(s => ({ shelfOpen: !s.shelfOpen }))
+    };
+  }
+}
+</script>
+</body>
+</html>
