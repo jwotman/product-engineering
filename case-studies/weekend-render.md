@@ -7,6 +7,8 @@
 **Stack:** Blender 5.2, Flamenco, Python, Railway, RunPod, R2/object storage, SSH/Paramiko, Shaman  
 **Status:** POC complete; end-to-end alpha implementation is active and not yet publicly deployed
 
+**Supporting artifact trail:** [POC, durable architecture, and evidence-driven decisions](../artifacts/weekend-render/README.md)
+
 ---
 
 ## The product problem
@@ -302,7 +304,7 @@ The source repository is private, but I can provide branch-level access so a tec
 
 I would walk through a small set of artifacts:
 
-1. **POC acceptance matrix and results** — demonstrates how assumptions were converted into executable gates.
+1. **[POC and architecture artifact trail](../artifacts/weekend-render/README.md)** — condensed acceptance evidence, durable-cloud ownership, architecture changes, and proven-vs-alpha status discipline.
 2. **The CPU-render failure and correction** — an example of a test preventing a false success.
 3. **The durable Railway workflow** — shows why Blender can disconnect after acceptance.
 4. **A live estimate → decision → pod teardown/recreate → render → R2 retrieval run** — demonstrates the end-to-end control plane.
