@@ -7,6 +7,8 @@
 **Stack:** Python, GeoPandas, Shapely, Matplotlib/Cairo, Pillow/OpenCV, Gemini-assisted visual workflows, Shopify, Playwright, Remotion, YAML/config-driven production systems  
 **Status:** Pre-launch commercial product; core production pipeline and storefront tooling are substantially implemented, with launch work still active
 
+**Supporting artifact trail:** [Production pipeline, evaluator debugging, storefront QA, and agentic production](../artifacts/terra-firma-shop/README.md)
+
 ---
 
 ## The product problem
@@ -456,7 +458,7 @@ I do not treat those planned capabilities as shipped evidence.
 
 I would walk through:
 
-1. **The render pipeline** — configuration → OSM/geospatial preparation → style → render → finishing → outputs → manifest.
+1. **[Terra Firma supporting artifact trail](../artifacts/terra-firma-shop/README.md)** — configurable production pipeline, evaluator-debugging case, storefront QA, multi-agent operations, and evidence-driven product corrections.
 2. **A style/location decision** — showing how product/art judgment becomes configuration rather than a code fork.
 3. **The Tribeca watercolor/evaluator failure** — because it demonstrates that I debug the evaluation system rather than optimize blindly against a score.
 4. **A storefront product-decision correction** — mobile hero or homepage architecture.
