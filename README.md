@@ -31,6 +31,7 @@ The case study covers:
 - translating privacy/regulatory research into product behavior;
 - designing LLM features with bounded authority and deterministic verification;
 - constrained interfaces such as Discord and SMS;
+- a cross-model design-to-code process spanning GPT, Claude Design, and Claude Code;
 - FastAPI/PostgreSQL/React implementation and Railway deployment;
 - custom AI-agent skills and a multi-agent review process;
 - turning product principles into executable engineering governance.
