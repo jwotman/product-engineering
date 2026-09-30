@@ -40,6 +40,8 @@ The case study covers:
 
 ### [Weekend Render](case-studies/weekend-render.md) — supporting case study
 
+Supporting artifacts: [POC, architecture, and evidence trail](artifacts/weekend-render/README.md)
+
 A cloud rendering workflow for Blender built around an on-demand Flamenco farm, RunPod GPUs, Railway, object storage, secure SSH transport, and a Blender add-on.
 
 Its strongest portfolio value is **technical discovery**: testing unfamiliar infrastructure against real components, rejecting assumptions that did not survive the POC, and evolving from "remote render" toward a durable cloud workflow that can continue after the local Blender process closes.
