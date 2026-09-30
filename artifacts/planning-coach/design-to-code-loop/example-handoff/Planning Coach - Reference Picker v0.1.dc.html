@@ -1,0 +1,192 @@
+<!-- PUBLIC PORTFOLIO COPY: real-world fixture identity sanitized; interaction/runtime structure retained. -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #07090c; }
+body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #7fb0e6; } a:hover { color: #a8ccf0; }
+button { font-family: inherit; cursor: pointer; }
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-thumb { background: #232b35; border-radius: 5px; }
+</style>
+</helmet>
+<div data-screen-label="Use as a reference — picker" style="min-height:100vh;background:rgba(4,6,9,0.7);display:flex;align-items:center;justify-content:center;padding:28px;">
+  <div style="width:520px;max-width:94vw;max-height:88vh;overflow:auto;background:#11161d;border:1px solid #2c4a63;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:13px;">
+
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="flex:1;min-width:0;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#7fb0e6;text-transform:uppercase;">Use as a reference</div>
+        <div style="font-size:15px;font-weight:700;color:#eef1f6;margin-top:3px;">Attach this to something on your board</div>
+      </div>
+      <button style="width:32px;height:32px;border-radius:8px;background:transparent;border:1px solid #232b35;color:#9aa6b4;font-size:15px;">✕</button>
+    </div>
+
+    <!-- what's being attached -->
+    <sc-if value="{{ isPassage }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:10px;padding:11px 13px;display:flex;flex-direction:column;gap:5px;">
+        <p style="font-size:13px;color:#cdd5df;line-height:1.6;font-style:italic;">"Bed: 84 1/4" long · 36" wide · 71 1/2" high"</p>
+        <span style="font-size:10.5px;color:#5f6b7a;">From dorm-layout.png, on the Arts Collective Move-In Newsletter · you selected it. The words and where they came from travel together.</span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isFile }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:10px;padding:11px 13px;display:flex;align-items:center;gap:11px;">
+        <span style="flex:none;width:34px;height:34px;border-radius:8px;background:#13233a;border:1px solid #35506f;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#7fb0e6" stroke-width="1.5"/><circle cx="9" cy="10" r="1.8" stroke="#7fb0e6" stroke-width="1.4"/><path d="M4 18l5-5 4 4 3-3 4 4" stroke="#7fb0e6" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;">
+          <span style="font-size:13px;font-weight:600;color:#cdd5df;">dorm-layout.png</span>
+          <span style="font-size:10.5px;color:#5f6b7a;">The whole file, from the Arts Collective Move-In Newsletter</span>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- candidates: search-first (owner decision 2026-08-06 #5) -->
+    <sc-if value="{{ hasCandidates }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <input onInput="{{ onSearch }}" value="{{ query }}" placeholder="Search your deadlines, commitments, and follow-ups…" style="width:100%;min-height:42px;background:#0a0e14;border:1px solid #2c3a4b;border-radius:10px;padding:0 13px;font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#eef1f6;outline:none;" />
+        <div style="display:flex;gap:6px;">
+          <sc-for list="{{ kindChips }}" as="k" hint-placeholder-count="4">
+            <button onClick="{{ setKind }}" data-kind="{{ k.id }}" style="min-height:30px;background:{{ k.bg }};border:1px solid {{ k.bd }};border-radius:999px;padding:0 12px;font-size:11.5px;font-weight:600;color:{{ k.col }};">{{ k.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ showLikely }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#6a7686;text-transform:uppercase;">Likely — from this email or coming up</span>
+            <sc-for list="{{ likely }}" as="it" hint-placeholder-count="2">
+              <button onClick="{{ pick }}" data-id="{{ it.id }}" style="text-align:left;background:{{ it.bg }};border:1px solid {{ it.bd }};border-radius:10px;padding:10px 13px;display:flex;align-items:center;gap:10px;" style-hover="border-color:#3d6da6;">
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;">
+                  <span style="font-size:13px;font-weight:600;color:#e6eaf0;">{{ it.title }}</span>
+                  <span style="font-size:11px;color:#6e7886;">{{ it.detail }}</span>
+                </div>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#8a95a3;background:#10151d;border:1px solid #232b35;border-radius:999px;padding:2px 7px;white-space:nowrap;">{{ it.why }}</span>
+                <sc-if value="{{ it.picked }}" hint-placeholder-val="{{ false }}"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#9fd4b5;background:#0e1a13;border:1px solid #2c5f43;border-radius:999px;padding:3px 8px;white-space:nowrap;">chosen</span></sc-if>
+              </button>
+            </sc-for>
+            <span style="font-size:10px;color:#4c5a6a;">Listed because of where they came from or when they are — not a guess about what you mean.</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ showResults }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#6a7686;text-transform:uppercase;">{{ resultsLabel }}</span>
+            <sc-for list="{{ results }}" as="it" hint-placeholder-count="3">
+              <button onClick="{{ pick }}" data-id="{{ it.id }}" style="text-align:left;background:{{ it.bg }};border:1px solid {{ it.bd }};border-radius:10px;padding:10px 13px;display:flex;align-items:center;gap:10px;" style-hover="border-color:#3d6da6;">
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;">
+                  <span style="font-size:13px;font-weight:600;color:#e6eaf0;">{{ it.title }}</span>
+                  <span style="font-size:11px;color:#6e7886;">{{ it.kindWord }} · {{ it.detail }}</span>
+                </div>
+                <sc-if value="{{ it.picked }}" hint-placeholder-val="{{ false }}"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#9fd4b5;background:#0e1a13;border:1px solid #2c5f43;border-radius:999px;padding:3px 8px;white-space:nowrap;">chosen</span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:12px;color:#8a95a3;padding:2px;">Nothing matches "{{ query }}". A reference attaches to something already on your board — if it's new, create it first.</span>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;gap:8px;border-top:1px solid #1d2530;padding-top:13px;align-items:center;">
+        <button onClick="{{ attach }}" style="flex:1;min-height:42px;background:{{ ctaBg }};border:1px solid {{ ctaBd }};border-radius:9px;font-size:13px;font-weight:600;color:{{ ctaCol }};">{{ ctaLabel }}</button>
+        <button style="min-height:42px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 14px;font-size:13px;font-weight:600;color:#9aa6b4;">Cancel</button>
+      </div>
+      <span style="font-size:10px;color:#4c5a6a;line-height:1.45;">The reference shows up on the thing you picked, labelled with this email as its source. Removing it later removes only the link — never the file or the message.</span>
+    </sc-if>
+
+    <!-- empty state -->
+    <sc-if value="{{ noCandidates }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:10px;padding:6px 2px;">
+        <span style="font-size:13.5px;font-weight:600;color:#cdd5df;">There's nothing on your board this could attach to yet.</span>
+        <p style="font-size:12px;color:#8a95a3;line-height:1.55;">A reference needs an existing deadline, commitment, or follow-up. If this is about something new, create that first — then the reference can ride along.</p>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;">
+          <button style="min-height:38px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;">Add a deadline</button>
+          <button style="min-height:38px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;">Add a commitment</button>
+          <button style="min-height:38px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;">Create a follow-up</button>
+        </div>
+        <span style="font-size:10px;color:#4c5a6a;">Those open the ordinary forms — with these words carried in as the starting point.</span>
+      </div>
+    </sc-if>
+
+    <!-- done -->
+    <sc-if value="{{ attached }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#0e1a13;border:1px solid #2c5f43;border-radius:10px;padding:12px 13px;display:flex;flex-direction:column;gap:4px;">
+        <span style="font-size:13px;font-weight:600;color:#9fd4b5;">Attached.</span>
+        <span style="font-size:11.5px;color:#6d8a79;line-height:1.5;">{{ attachedNote }}</span>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:700,&quot;height&quot;:720},&quot;sourceKind&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;passage&quot;,&quot;file&quot;],&quot;default&quot;:&quot;passage&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Source&quot;},&quot;emptyBoard&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;States&quot;}}">
+class Component extends DCLogic {
+  state = { picked: null, attached: false, query: '', kind: 'all' };
+  // Likely shelf = structural facts only (owner decision 2026-08-06 #5):
+  // same-message/thread provenance, dated soon, recently touched. ASK-13 serves this.
+  LIKELY = [
+    { id: 'd2', title: 'Arts Collective general meeting', detail: 'Sunday, August 23, 5:00–6:00 PM', kind: 'date', kindWord: 'Deadline', why: 'from this email' },
+    { id: 'd1', title: 'Move-in day', detail: 'Sunday, August 16', kind: 'date', kindWord: 'Deadline', why: 'coming up' },
+    { id: 'c1', title: 'Pack for move-in', detail: 'this week · 3 pieces placed', kind: 'commitment', kindWord: 'Commitment', why: 'touched today' }
+  ];
+  ALL = [
+    { id: 'd1', title: 'Move-in day', detail: 'Sunday, August 16', kind: 'date', kindWord: 'Deadline' },
+    { id: 'd2', title: 'Arts Collective general meeting', detail: 'Sunday, August 23, 5:00–6:00 PM', kind: 'date', kindWord: 'Deadline' },
+    { id: 'd3', title: 'Final summer Q&A', detail: 'Saturday, August 8, 6:00 PM', kind: 'date', kindWord: 'Deadline' },
+    { id: 'c1', title: 'Pack for move-in', detail: 'this week · 3 pieces placed', kind: 'commitment', kindWord: 'Commitment' },
+    { id: 'c2', title: 'Film Response 2', detail: 'due Friday · submission window open', kind: 'commitment', kindWord: 'Commitment' },
+    { id: 'f1', title: 'Ask about loft bed request', detail: 'open loop · resurfaces Aug 12', kind: 'follow_up', kindWord: 'Follow-up' },
+    { id: 'f2', title: 'Confirm mailing address format', detail: 'open loop', kind: 'follow_up', kindWord: 'Follow-up' }
+  ];
+  KINDS = [
+    { id: 'all', label: 'Everything' }, { id: 'date', label: 'Deadlines' },
+    { id: 'commitment', label: 'Commitments' }, { id: 'follow_up', label: 'Follow-ups' }
+  ];
+  renderVals() {
+    const s = this.state;
+    const sourceKind = this.props.sourceKind ?? 'passage'; // passage | file
+    const empty = this.props.emptyBoard ?? false;
+    const pickedItem = this.ALL.find(i => i.id === s.picked);
+    const deco = (it) => ({ ...it, picked: s.picked === it.id,
+      bg: s.picked === it.id ? '#13233a' : '#0a0e14',
+      bd: s.picked === it.id ? '#3d6da6' : '#1d2530' });
+    const q = s.query.trim().toLowerCase();
+    const searching = q.length > 0 || s.kind !== 'all';
+    const results = this.ALL.filter(it =>
+      (s.kind === 'all' || it.kind === s.kind) &&
+      (!q || it.title.toLowerCase().includes(q) || it.detail.toLowerCase().includes(q)));
+    return {
+      isPassage: sourceKind === 'passage', isFile: sourceKind === 'file',
+      hasCandidates: !empty, noCandidates: empty,
+      query: s.query,
+      onSearch: (e) => this.setState({ query: e.target.value }),
+      kindChips: this.KINDS.map(k => ({ ...k,
+        bg: s.kind === k.id ? '#13233a' : 'transparent',
+        bd: s.kind === k.id ? '#3d6da6' : '#232b35',
+        col: s.kind === k.id ? '#bcd2ec' : '#9aa6b4' })),
+      setKind: (e) => this.setState({ kind: e.currentTarget.dataset.kind }),
+      showLikely: !searching,
+      likely: this.LIKELY.map(deco),
+      showResults: searching && results.length > 0,
+      results: results.map(deco),
+      resultsLabel: results.length + (results.length === 1 ? ' match' : ' matches'),
+      noResults: searching && results.length === 0,
+      pick: (e) => this.setState({ picked: e.currentTarget.dataset.id, attached: false }),
+      ctaLabel: pickedItem ? 'Attach to \u201c' + pickedItem.title + '\u201d' : 'Pick one above first',
+      ctaBg: pickedItem ? '#1d365a' : '#0d1219', ctaBd: pickedItem ? '#3d6da6' : '#232b35',
+      ctaCol: pickedItem ? '#d7e6f8' : '#5f6b7a',
+      attach: () => { if (this.state.picked) this.setState({ attached: true }); },
+      attached: s.attached,
+      attachedNote: pickedItem ? 'It now shows on \u201c' + pickedItem.title + '\u201d, labelled with the Arts Collective newsletter as its source.' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>
