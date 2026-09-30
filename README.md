@@ -50,6 +50,8 @@ The case study focuses on rapid learning in unfamiliar infrastructure, evidence-
 
 ### [Terra Firma Shop](case-studies/terra-firma-shop.md) — supporting case study
 
+Supporting artifacts: [production pipeline, visual QA, storefront QA, and agentic operations](artifacts/terra-firma-shop/README.md)
+
 A programmatic map-art product spanning geospatial data, rendering, AI-assisted visual production, e-commerce, Shopify, mobile storefront QA, and an agentic production workflow.
 
 Its strongest portfolio value is **breadth and autonomous product execution**: commercial research, product decisions, visual-system iteration, deterministic rendering, AI-assisted workflows, automation, and customer-facing QA.
