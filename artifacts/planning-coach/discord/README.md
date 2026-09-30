@@ -11,7 +11,7 @@ An early interaction concept explored both student-initiated actions and proacti
 
 The concept was reviewed with the pilot student. Based on that review, the student expressed interest in **Discord as an interface for Planning Coach**. That signal helped justify continuing the channel investigation beyond a purely technical proof of concept.
 
-The concept is retained here as part of the design history rather than as a claim that every illustrated interaction shipped exactly as drawn. The implementation subsequently changed as privacy/security work, capability ownership decisions, and real-device testing clarified what Discord should own and how it should behave.
+This concept is retained as part of the design history, not as a claim that the interaction model shipped unchanged. The implementation subsequently evolved as privacy/security work, capability ownership decisions, and real-device testing clarified what Discord should own and how it should behave.
 
 ## The sequence
 
