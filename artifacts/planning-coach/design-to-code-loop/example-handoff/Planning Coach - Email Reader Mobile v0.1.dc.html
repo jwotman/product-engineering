@@ -1,0 +1,561 @@
+<!-- PUBLIC PORTFOLIO COPY: source fixture body replaced wholesale with synthetic content; interaction/runtime structure retained. -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #07090c; }
+body { font-family: 'Hanken Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #7fb0e6; } a:hover { color: #a8ccf0; }
+button { font-family: inherit; cursor: pointer; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #232b35; border-radius: 5px; }
+</style>
+</helmet>
+<div data-screen-label="Email reader — mobile" style="width:390px;min-height:844px;margin:0 auto;background:#07090c;display:flex;flex-direction:column;position:relative;">
+
+  <!-- sticky top bar -->
+  <div style="position:sticky;top:0;z-index:40;background:rgba(7,9,12,0.96);border-bottom:1px solid #161d26;display:flex;align-items:center;gap:10px;padding:12px 14px;">
+    <button title="Back to the queue" style="width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid #232b35;display:flex;align-items:center;justify-content:center;flex:none;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="#9aa6b4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.16em;color:#5f6b7a;text-transform:uppercase;">Email · 3 waiting</span>
+      <span style="font-size:13.5px;font-weight:700;color:#eef1f6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Arts Collective Move-In Newsletter</span>
+    </div>
+    <button onClick="{{ cycleTextSize }}" title="Text size" style="min-width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid #232b35;padding:0 10px;font-size:13px;font-weight:600;color:#9aa6b4;flex:none;">Aa</button>
+  </div>
+
+  <!-- message meta -->
+  <div style="padding:16px 16px 6px;display:flex;flex-direction:column;gap:7px;">
+    <div style="font-size:12.5px;color:#8a95a3;line-height:1.4;">From: Northreach Arts Collective · <span style="font-family:'IBM Plex Mono',monospace;color:#6e7886;">arts-collective@northreach.example.edu</span><br>Mon Aug 3, 1:53 PM</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9aa6b4;background:#10151d;border:1px solid #232b35;border-radius:999px;padding:4px 9px;white-space:nowrap;">3 files</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9aa6b4;background:#10151d;border:1px solid #232b35;border-radius:999px;padding:4px 9px;white-space:nowrap;">11 links</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9aa6b4;background:#10151d;border:1px solid #232b35;border-radius:999px;padding:4px 9px;white-space:nowrap;">5 sections</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:{{ stCol }};background:{{ stBg }};border:1px solid {{ stBd }};border-radius:999px;padding:4px 9px;white-space:nowrap;">{{ stChip }}</span>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:2px;">
+      <button style="flex:1;min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:10px;font-size:13px;font-weight:600;color:#bcd2ec;">Open original ↗</button>
+      <button style="flex:1;min-height:44px;background:transparent;border:1px solid #232b35;border-radius:10px;font-size:13px;font-weight:600;color:#9aa6b4;">Not now</button>
+    </div>
+  </div>
+
+  <!-- sections — synthetic publication fixture -->
+  <div id="em-body-m" style="flex:1;padding:12px 14px 120px;display:flex;flex-direction:column;gap:9px;font-size:{{ bodyFz }};">
+
+    <div style="border:1px solid #223046;border-radius:13px;overflow:hidden;background:#0d1219;">
+      <button onClick="{{ toggleSec }}" data-sec="s1" style="width:100%;min-height:52px;text-align:left;background:transparent;border:none;padding:13px 14px;display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7fb0e6;width:13px;flex:none;">{{ s1Caret }}</span>
+        <span style="flex:1;font-size:14.5px;font-weight:700;color:#eef1f6;">Welcome</span>
+        <span style="font-size:11px;color:#5f6b7a;white-space:nowrap;">1 image</span>
+      </button>
+      <sc-if value="{{ s1Open }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:2px 16px 16px;display:flex;flex-direction:column;gap:12px;">
+        <button onClick="{{ openFile }}" data-file="logo" style="width:140px;height:88px;background:#0e1420;border:1px solid #223046;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6e7886;">arts-collective-logo.png</span>
+        </button>
+        <p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">Welcome to the Northreach Arts Collective. This public fixture preserves the original prototype's states and interactions while replacing the source newsletter. This message covers <span onClick="{{ linkClick }}" data-name="move-in" data-dest="A heading further down in this same message" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:4px;padding:1px 4px;cursor:pointer;">move-in</span>, orientation, and community events.</p>
+      </div>
+      </sc-if>
+    </div>
+
+    <div style="border:1px solid #223046;border-radius:13px;overflow:hidden;background:#0d1219;">
+      <button onClick="{{ toggleSec }}" data-sec="s2" style="width:100%;min-height:52px;text-align:left;background:transparent;border:none;padding:13px 14px;display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7fb0e6;width:13px;flex:none;">{{ s2Caret }}</span>
+        <span style="flex:1;font-size:14.5px;font-weight:700;color:#eef1f6;">Move-In Information</span>
+        <span style="font-size:11px;color:#5f6b7a;white-space:nowrap;">4 pts · 2 img</span>
+      </button>
+      <sc-if value="{{ s2Open }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:2px 16px 16px;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:9px;"><span style="color:#4c6584;flex:none;line-height:{{ bodyLh }};">•</span><p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">Arrive during your assigned move-in window so unloading areas stay clear.</p></div>
+        <div style="display:flex;gap:9px;"><span style="color:#4c6584;flex:none;line-height:{{ bodyLh }};">•</span><p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">Review the <span onClick="{{ linkClick }}" data-name="housing guide" data-dest="northreach.example.edu — housing guide" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:4px;padding:1px 4px;cursor:pointer;">housing guide</span> before packing.</p></div>
+        <div style="display:flex;gap:9px;"><span style="color:#4c6584;flex:none;line-height:{{ bodyLh }};">•</span><p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">Packages can be sent to <span onClick="{{ linkClick }}" data-name="100 College Way, Fairview NY 10000" data-dest="A street address — opens in your maps app" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:4px;padding:1px 4px;cursor:pointer;">100 College Way, Fairview NY 10000</span>. The mail center begins accepting fall packages on <span onClick="{{ dateClick }}" data-quote="August 10th" data-date-label="Monday, August 10, 2026" style="color:#9fd4b5;background:rgba(107,189,143,0.12);border-bottom:1px dashed #4a8a66;border-radius:3px;padding:1px 4px;cursor:pointer;">August 10th</span>.</p></div>
+        <div style="display:flex;gap:9px;">
+          <button onClick="{{ openFile }}" data-file="dorm" style="flex:1;height:104px;background:#0e1420;border:1px solid #223046;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6e7886;">room-layout.png</span><span style="font-size:9.5px;color:#4c6584;">tap to view</span></button>
+          <button onClick="{{ openFile }}" data-file="closet" style="flex:1;height:104px;background:#0e1420;border:1px solid #223046;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6e7886;">storage-dimensions.png</span><span style="font-size:9.5px;color:#4c6584;">tap to view</span></button>
+        </div>
+        <div style="display:flex;gap:9px;"><span style="color:#4c6584;flex:none;line-height:{{ bodyLh }};">•</span><p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">Residence floor plans are available on the <span onClick="{{ linkClick }}" data-name="Northreach Housing website" data-dest="northreach.example.edu — sign-in required" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:4px;padding:1px 4px;cursor:pointer;">Northreach Housing website</span>.</p></div>
+      </div>
+      </sc-if>
+    </div>
+
+    <div style="border:1px solid #223046;border-radius:13px;overflow:hidden;background:#0d1219;">
+      <button onClick="{{ toggleSec }}" data-sec="s3" style="width:100%;min-height:52px;text-align:left;background:transparent;border:none;padding:13px 14px;display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7fb0e6;width:13px;flex:none;">{{ s3Caret }}</span>
+        <span style="flex:1;font-size:14.5px;font-weight:700;color:#eef1f6;">Arts Collective Information</span>
+        <span style="font-size:11px;color:#5f6b7a;white-space:nowrap;">3 topics</span>
+      </button>
+      <sc-if value="{{ s3Open }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:2px 16px 16px;display:flex;flex-direction:column;gap:13px;">
+        <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7e8a99;text-transform:uppercase;">Location</span><p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">The Arts Collective meets in Alder Hall and maintains shared studio space.</p></div>
+        <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7e8a99;text-transform:uppercase;">Events</span><p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">A summer Q&amp;A is scheduled for <span onClick="{{ dateClick }}" data-quote="August 8th at 6PM" data-date-label="Saturday, August 8, 2026" data-time-label="6:00 PM" style="color:#9fd4b5;background:rgba(107,189,143,0.12);border-bottom:1px dashed #4a8a66;border-radius:3px;padding:1px 4px;cursor:pointer;">August 8th at 6PM</span>. The required general meeting is <span onClick="{{ dateClick }}" data-quote="August 23rd from 5-6PM" data-date-label="Sunday, August 23, 2026" data-time-label="5:00–6:00 PM" style="color:#9fd4b5;background:rgba(107,189,143,0.12);border-bottom:1px dashed #4a8a66;border-radius:3px;padding:1px 4px;cursor:pointer;">August 23rd from 5-6PM</span>.</p></div>
+        <div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#7e8a99;text-transform:uppercase;">Communication</span><p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">Announcements appear in the community chat and on the <span onClick="{{ linkClick }}" data-name="student groups page" data-dest="groups.northreach.example.edu — Arts Collective page" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:4px;padding:1px 4px;cursor:pointer;">student groups page</span>.</p></div>
+      </div>
+      </sc-if>
+    </div>
+
+    <div style="border:1px solid #223046;border-radius:13px;overflow:hidden;background:#0d1219;">
+      <button onClick="{{ toggleSec }}" data-sec="s4" style="width:100%;min-height:52px;text-align:left;background:transparent;border:none;padding:13px 14px;display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7fb0e6;width:13px;flex:none;">{{ s4Caret }}</span>
+        <span style="flex:1;font-size:14.5px;font-weight:700;color:#eef1f6;">Student board introductions</span>
+        <span style="font-size:11px;color:#5f6b7a;white-space:nowrap;">4 people</span>
+      </button>
+      <sc-if value="{{ s4Open }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:2px 16px 16px;display:flex;flex-direction:column;gap:12px;">
+        <button onClick="{{ openFile }}" data-file="art" style="width:160px;height:100px;background:#0e1420;border:1px solid #223046;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6e7886;">board-art.png</span></button>
+        <p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};"><strong style="color:#eef1f6;">Morgan Lee</strong> coordinates the student board and community calendar.</p>
+        <p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};"><strong style="color:#eef1f6;">Casey Patel</strong> publishes weekly updates.</p>
+        <p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};"><strong style="color:#eef1f6;">Rowan Brooks</strong> maintains meeting notes and reservations.</p>
+        <p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};"><strong style="color:#eef1f6;">Taylor Kim</strong> coordinates supplies and purchasing.</p>
+      </div>
+      </sc-if>
+    </div>
+
+    <div style="border:1px solid #223046;border-radius:13px;overflow:hidden;background:#0d1219;">
+      <button onClick="{{ toggleSec }}" data-sec="s5" style="width:100%;min-height:52px;text-align:left;background:transparent;border:none;padding:13px 14px;display:flex;align-items:center;gap:10px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7fb0e6;width:13px;flex:none;">{{ s5Caret }}</span>
+        <span style="flex:1;font-size:14.5px;font-weight:700;color:#eef1f6;">Questions &amp; forms</span>
+        <span style="font-size:11px;color:#5f6b7a;white-space:nowrap;">3 links</span>
+      </button>
+      <sc-if value="{{ s5Open }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:2px 16px 16px;display:flex;flex-direction:column;gap:12px;">
+        <p style="font-size:1em;color:#cdd5df;line-height:{{ bodyLh }};">Questions can be sent to the student board. These links are synthetic fixtures.</p>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;">
+          <span onClick="{{ linkClick }}" data-name="Supply request form" data-dest="forms.example.com — a form" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:6px;padding:9px 12px;cursor:pointer;font-size:0.95em;">Supply request form</span>
+          <span onClick="{{ linkClick }}" data-name="Event suggestions form" data-dest="forms.example.com — a form" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:6px;padding:9px 12px;cursor:pointer;font-size:0.95em;">Event suggestions form</span>
+          <span onClick="{{ linkClick }}" data-name="Event calendar" data-dest="calendar.example.com — a shared calendar" style="color:#7fb0e6;background:rgba(61,109,166,0.14);border-radius:6px;padding:9px 12px;cursor:pointer;font-size:0.95em;">Event calendar</span>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+
+    <p style="font-size:10.5px;color:#4c5a6a;line-height:1.5;padding:2px 2px 0;">This public portfolio fixture is synthetic; the original private handoff used a real-world newsletter fixture.</p>
+  </div>
+
+    <!-- bottom bar -->
+  <div style="position:sticky;bottom:0;z-index:40;background:rgba(7,9,12,0.97);border-top:1px solid #161d26;display:flex;gap:8px;padding:11px 14px 16px;">
+    <button onClick="{{ openSheet }}" data-sheet="decide" style="flex:1.4;min-height:48px;background:#1d365a;border:1px solid #3d6da6;border-radius:11px;font-size:14px;font-weight:700;color:#d7e6f8;">Decide</button>
+    <button onClick="{{ openSheet }}" data-sheet="files" style="flex:1;min-height:48px;background:#10151d;border:1px solid #232b35;border-radius:11px;font-size:13px;font-weight:600;color:#cdd5df;">Files · 3</button>
+    <button onClick="{{ openNoticed }}" style="flex:1;min-height:48px;background:#120f1c;border:1px solid #322a52;border-radius:11px;font-size:13px;font-weight:600;color:#b3a3e0;white-space:nowrap;">Noticed?</button>
+  </div>
+
+  <!-- selection bar (§AR.1.4 — the selection is the request and the evidence) -->
+  <sc-if value="{{ selOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:374px;max-width:96vw;bottom:92px;z-index:45;background:#11161d;border:1px solid #2c4a63;border-radius:12px;padding:9px 10px;display:flex;flex-direction:column;gap:8px;box-shadow:0 10px 28px rgba(0,0,0,0.5);">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="flex:1;min-width:0;font-size:11.5px;color:#8a95a3;font-style:italic;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">"{{ selSnippet }}"</span>
+        <button onClick="{{ selClear }}" style="width:30px;height:30px;border-radius:7px;background:transparent;border:none;color:#6e7886;font-size:14px;flex:none;">✕</button>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <button onClick="{{ openCapture }}" data-action="Add a deadline" style="min-height:44px;background:#1d365a;border:1px solid #3d6da6;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#d7e6f8;white-space:nowrap;">Add a deadline</button>
+        <button onClick="{{ openCapture }}" data-action="Add a commitment" style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;white-space:nowrap;">Add a commitment</button>
+        <button onClick="{{ openCapture }}" data-action="Create a follow-up" style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;white-space:nowrap;">Create a follow-up</button>
+        <button onClick="{{ openCapture }}" data-action="Use as a reference" style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;white-space:nowrap;">Use as a reference</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ toastOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);bottom:150px;z-index:80;background:#0e1a13;border:1px solid #2c5f43;border-radius:10px;padding:10px 14px;font-size:12px;color:#9fd4b5;box-shadow:0 8px 24px rgba(0,0,0,0.5);max-width:360px;text-align:center;">{{ toastText }}</div>
+  </sc-if>
+
+  <!-- sheet scrim + sheets -->
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeSheet }}" style="position:fixed;inset:0;z-index:50;background:rgba(4,6,9,0.45);"></div>
+
+    <sc-if value="{{ isDecide }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:390px;max-width:100vw;bottom:0;z-index:51;background:#0d1219;border-top:1px solid #2c3a4b;border-radius:18px 18px 0 0;padding:14px 16px 24px;display:flex;flex-direction:column;gap:8px;">
+      <div style="width:38px;height:4px;border-radius:2px;background:#2a3340;align-self:center;margin-bottom:4px;"></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#6a7686;text-transform:uppercase;">What do you want to do with this?</span>
+      <button onClick="{{ openCapture }}" data-action="Add a deadline" style="min-height:48px;text-align:left;background:#10151d;border:1px solid #2c3a4b;border-radius:11px;padding:0 14px;font-size:14px;font-weight:600;color:#bcd2ec;">Add a deadline</button>
+      <button onClick="{{ openCapture }}" data-action="Add a commitment" style="min-height:48px;text-align:left;background:#10151d;border:1px solid #232b35;border-radius:11px;padding:0 14px;font-size:14px;font-weight:600;color:#cdd5df;">Add a commitment</button>
+      <button onClick="{{ openCapture }}" data-action="Create a follow-up" style="min-height:48px;text-align:left;background:#10151d;border:1px solid #232b35;border-radius:11px;padding:0 14px;font-size:14px;font-weight:600;color:#cdd5df;">Create a follow-up</button>
+      <button style="min-height:48px;text-align:left;background:#10151d;border:1px solid #232b35;border-radius:11px;padding:0 14px;font-size:14px;font-weight:600;color:#cdd5df;">Reply</button>
+      <button onClick="{{ noAction }}" style="min-height:48px;text-align:left;background:transparent;border:1px solid #232b35;border-radius:11px;padding:0 14px;font-size:14px;font-weight:600;color:#9aa6b4;">No action</button>
+      <button style="min-height:40px;text-align:left;background:transparent;border:none;padding:0 14px;font-size:12.5px;color:#6e7886;">More — already handled, that's not right…</button>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isFiles }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:390px;max-width:100vw;bottom:0;z-index:51;background:#0d1219;border-top:1px solid #2c3a4b;border-radius:18px 18px 0 0;padding:14px 16px 24px;display:flex;flex-direction:column;gap:8px;">
+      <div style="width:38px;height:4px;border-radius:2px;background:#2a3340;align-self:center;margin-bottom:4px;"></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#6a7686;text-transform:uppercase;">Files on this message</span>
+      <button onClick="{{ openFile }}" data-file="dorm" style="min-height:56px;text-align:left;background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:10px 13px;display:flex;flex-direction:column;gap:2px;">
+        <span style="font-size:13px;font-weight:600;color:#cdd5df;">dorm-layout.png</span>
+        <span style="font-size:11px;color:#6bbd8f;">Text is ready</span>
+      </button>
+      <button onClick="{{ openFile }}" data-file="closet" style="min-height:56px;text-align:left;background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:10px 13px;display:flex;flex-direction:column;gap:2px;">
+        <span style="font-size:13px;font-weight:600;color:#cdd5df;">closet-dimensions.png</span>
+        <span style="font-size:11px;color:#c69a55;">Still reading it — you can decide now</span>
+      </button>
+      <button onClick="{{ openFile }}" data-file="art" style="min-height:56px;text-align:left;background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:10px 13px;display:flex;flex-direction:column;gap:2px;">
+        <span style="font-size:13px;font-weight:600;color:#cdd5df;">eboard-art.png</span>
+        <span style="font-size:11px;color:#6bbd8f;">Text is ready</span>
+      </button>
+      <p style="font-size:10px;color:#4c5a6a;line-height:1.45;">Signature logos and tracking images aren't counted here.</p>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isNoticed }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:390px;max-width:100vw;bottom:0;z-index:51;max-height:70%;overflow:auto;background:#0d1219;border-top:1px solid #322a52;border-radius:18px 18px 0 0;padding:14px 16px 24px;display:flex;flex-direction:column;gap:9px;">
+      <div style="width:38px;height:4px;border-radius:2px;background:#2a3340;align-self:center;margin-bottom:4px;"></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#b3a3e0;text-transform:uppercase;">What I noticed</span>
+      <sc-if value="{{ noticedLoading }}" hint-placeholder-val="{{ false }}"><p style="font-size:12px;color:#6e7886;">Getting what I noticed…</p></sc-if>
+      <sc-if value="{{ noticedReady }}" hint-placeholder-val="{{ false }}">
+      <p style="font-size:11px;color:#7e8a99;line-height:1.45;">You asked, so here it is. Nothing below is something you've agreed to. The message above stays visible behind this sheet.</p>
+      <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;">
+        <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#e6eaf0;line-height:1.35;flex:1;">A deadline: final summer Q&amp;A</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6bbd8f;background:#0e1a13;border:1px solid #2c5f43;border-radius:999px;padding:2px 7px;white-space:nowrap;">stated</span></div>
+        <p style="font-size:11.5px;color:#8a95a3;line-height:1.5;font-style:italic;">"our final summer Q&amp;A will be hosted over on our Discord server on August 8th at 6PM EST"</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;"><button style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;">Add a deadline</button><button style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;">Keep visible</button><button style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;">Not needed</button></div>
+      </div>
+      <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;">
+        <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#e6eaf0;line-height:1.35;flex:1;">A deadline: general meeting, called mandatory</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6bbd8f;background:#0e1a13;border:1px solid #2c5f43;border-radius:999px;padding:2px 7px;white-space:nowrap;">stated</span></div>
+        <p style="font-size:11.5px;color:#8a95a3;line-height:1.5;font-style:italic;">"our mandatory general meeting, on August 23rd from 5-6PM (i.e. the Sunday before classes start)"</p>
+        <p style="font-size:11.5px;color:#7e8a99;line-height:1.45;">The sender says it's mandatory — their word, not a commitment you've made.</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;"><button style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;">Add a deadline</button><button style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;">Keep visible</button><button style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;">Already handled…</button></div>
+      </div>
+      <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;">
+        <div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:600;color:#e6eaf0;line-height:1.35;flex:1;">Packages: accepted starting Aug 10</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6bbd8f;background:#0e1a13;border:1px solid #2c5f43;border-radius:999px;padding:2px 7px;white-space:nowrap;">stated</span></div>
+        <p style="font-size:11.5px;color:#8a95a3;line-height:1.5;font-style:italic;">"The mail center begins accepting fall packages on August 10th."</p>
+        <p style="font-size:11.5px;color:#7e8a99;line-height:1.45;">Whether this matters depends on whether you're shipping anything.</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;"><button style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#bcd2ec;">Add a deadline</button><button style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;">Keep visible</button><button style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;">Not needed</button></div>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isBackstop }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:390px;max-width:100vw;bottom:0;z-index:51;max-height:76%;overflow:auto;background:#120f1c;border-top:1px solid #4a3f78;border-radius:18px 18px 0 0;padding:14px 16px 24px;display:flex;flex-direction:column;gap:10px;">
+      <div style="width:38px;height:4px;border-radius:2px;background:#2a3340;align-self:center;"></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#b3a3e0;text-transform:uppercase;">Before this is done</span>
+      <p style="font-size:12.5px;color:#aeb8c5;line-height:1.5;">Your choice stands either way. I noticed {{ bsCountLabel }} — possible actions, not corrections.</p>
+      <sc-if value="{{ f2Un }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;align-items:center;gap:7px;"><span style="flex:1;font-size:13px;font-weight:600;color:#e6eaf0;">A meeting the sender calls mandatory</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#eec288;background:#15110a;border:1px solid #6e5226;border-radius:999px;padding:2px 7px;white-space:nowrap;">their word</span></div>
+          <p style="font-size:11.5px;color:#8a95a3;line-height:1.5;font-style:italic;">"our mandatory general meeting, on August 23rd from 5-6PM (i.e. the Sunday before classes start)"</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button onClick="{{ bsAdd }}" data-f="f2" style="min-height:44px;background:#1d365a;border:1px solid #3d6da6;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#d7e6f8;white-space:nowrap;">Add it</button>
+            <button onClick="{{ bsKeep }}" data-f="f2" style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;color:#bcd2ec;white-space:nowrap;">Keep visible</button>
+            <button onClick="{{ f2ToggleReasons }}" style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;white-space:nowrap;">Rule it out {{ f2Caret }}</button>
+          </div>
+          <sc-if value="{{ f2ReasonsOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:5px;border-top:1px dashed #1d2530;padding-top:8px;">
+              <span style="font-size:10.5px;color:#7e8a99;">This one sounds required, so ruling it out takes a reason:</span>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                <button onClick="{{ f2Reason }}" data-reason="Already handled" style="min-height:44px;background:transparent;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;color:#bcd2ec;white-space:nowrap;">Already handled</button>
+                <button onClick="{{ f2Reason }}" data-reason="Doesn't apply to me" style="min-height:44px;background:transparent;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;color:#bcd2ec;white-space:nowrap;">Doesn't apply to me</button>
+                <button onClick="{{ f2Reason }}" data-reason="That's not right" style="min-height:44px;background:transparent;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;color:#bcd2ec;white-space:nowrap;">That's not right</button>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ f1Un }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;">
+          <span style="font-size:13px;font-weight:600;color:#e6eaf0;">A deadline: final summer Q&amp;A</span>
+          <p style="font-size:11.5px;color:#8a95a3;line-height:1.5;font-style:italic;">"our final summer Q&amp;A will be hosted over on our Discord server on August 8th at 6PM EST"</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button onClick="{{ bsAdd }}" data-f="f1" style="min-height:44px;background:#1d365a;border:1px solid #3d6da6;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#d7e6f8;white-space:nowrap;">Add it</button>
+            <button onClick="{{ bsKeep }}" data-f="f1" style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;color:#bcd2ec;white-space:nowrap;">Keep visible</button>
+            <button onClick="{{ bsNotNeeded }}" data-f="f1" style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;white-space:nowrap;">Not needed</button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ f3Un }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:11px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;">
+          <span style="font-size:13px;font-weight:600;color:#e6eaf0;">Packages: accepted starting Aug 10</span>
+          <p style="font-size:11.5px;color:#8a95a3;line-height:1.5;font-style:italic;">"The mail center begins accepting fall packages on August 10th."</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button onClick="{{ bsAdd }}" data-f="f3" style="min-height:44px;background:#1d365a;border:1px solid #3d6da6;border-radius:9px;padding:0 12px;font-size:12px;font-weight:600;color:#d7e6f8;white-space:nowrap;">Add it</button>
+            <button onClick="{{ bsKeep }}" data-f="f3" style="min-height:44px;background:#10151d;border:1px solid #2c3a4b;border-radius:9px;padding:0 12px;font-size:12px;color:#bcd2ec;white-space:nowrap;">Keep visible</button>
+            <button onClick="{{ bsNotNeeded }}" data-f="f3" style="min-height:44px;background:transparent;border:1px solid #232b35;border-radius:9px;padding:0 12px;font-size:12px;color:#9aa6b4;white-space:nowrap;">Not needed</button>
+          </div>
+        </div>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:10px;border-top:1px solid #1d2530;padding-top:11px;">
+        <button onClick="{{ closeSheet }}" style="min-height:44px;background:transparent;border:1px solid #322a52;border-radius:10px;padding:0 14px;font-size:12.5px;font-weight:600;color:#9286c0;white-space:nowrap;">Not now</button>
+        <span style="font-size:10.5px;color:#5f6b7a;line-height:1.4;">Leaving keeps your decision and marks this message "one thing to check".</span>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isCapture }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:390px;max-width:100vw;bottom:0;z-index:51;background:#11161d;border-top:1px solid #2c4a63;border-radius:18px 18px 0 0;padding:14px 16px 24px;display:flex;flex-direction:column;gap:10px;">
+      <div style="width:38px;height:4px;border-radius:2px;background:#2a3340;align-self:center;"></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#7fb0e6;text-transform:uppercase;">{{ capAction }}</span>
+      <sc-if value="{{ capHasText }}" hint-placeholder-val="{{ true }}">
+        <span style="font-size:15px;font-weight:700;color:#eef1f6;">Starts prefilled with these words</span>
+        <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:10px;padding:11px 13px;display:flex;flex-direction:column;gap:5px;">
+          <p style="font-size:13px;color:#cdd5df;line-height:1.6;font-style:italic;">"{{ capText }}"</p>
+          <span style="font-size:10.5px;color:#5f6b7a;">{{ capEvidenceNote }}</span>
+        </div>
+        <sc-if value="{{ capParseOk }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#0e1a13;border:1px solid #2c5f43;border-radius:10px;padding:11px 13px;display:flex;flex-direction:column;gap:4px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;color:#6bbd8f;text-transform:uppercase;">{{ capSrcLabel }}</span>
+            <span style="font-size:16px;font-weight:700;color:#eef1f6;">{{ capDateLabel }}</span>
+            <sc-if value="{{ capHasTime }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#9fd4b5;">{{ capTimeLabel }}</span></sc-if>
+            <span style="font-size:10.5px;color:#6d8a79;">If that's not right, change it on the form — your words stay as the evidence either way.</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ capParseFail }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size:12px;color:#c69a55;line-height:1.5;">I couldn't read a date out of this — the form opens with it as your starting note instead.</p>
+        </sc-if>
+      </sc-if>
+      <sc-if value="{{ capNoText }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size:15px;font-weight:700;color:#eef1f6;">Nothing selected — the form opens empty</span>
+        <p style="font-size:12px;color:#8a95a3;line-height:1.5;">Tip: select words in the message first and they'll be carried in, along with where they came from.</p>
+      </sc-if>
+      <div style="display:flex;gap:8px;">
+        <button onClick="{{ capConfirm }}" style="flex:1;min-height:48px;background:#1d365a;border:1px solid #3d6da6;border-radius:11px;font-size:14px;font-weight:700;color:#d7e6f8;">{{ capPrimary }}</button>
+        <button onClick="{{ closeSheet }}" style="min-height:48px;background:transparent;border:1px solid #232b35;border-radius:11px;padding:0 16px;font-size:13px;font-weight:600;color:#9aa6b4;">Cancel</button>
+      </div>
+      <span style="font-size:10px;color:#4c5a6a;line-height:1.4;">Prototype note: the real flow is the target's own form. Every prefilled field says where its value came from and can be changed.</span>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isLink }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:390px;max-width:100vw;bottom:0;z-index:51;background:#11161d;border-top:1px solid #2c4a63;border-radius:18px 18px 0 0;padding:14px 16px 24px;display:flex;flex-direction:column;gap:9px;">
+      <div style="width:38px;height:4px;border-radius:2px;background:#2a3340;align-self:center;margin-bottom:2px;"></div>
+      <span style="font-size:15px;font-weight:700;color:#eef1f6;">{{ popName }}</span>
+      <span style="font-size:12.5px;color:#9aa6b4;line-height:1.45;">Goes to: {{ popDest }}</span>
+      <div style="display:flex;gap:8px;">
+        <button style="flex:1;min-height:48px;background:#1d365a;border:1px solid #3d6da6;border-radius:11px;font-size:14px;font-weight:700;color:#d7e6f8;">Open ↗</button>
+        <button onClick="{{ popCopy }}" style="min-height:48px;background:transparent;border:1px solid #232b35;border-radius:11px;padding:0 16px;font-size:13px;font-weight:600;color:#9aa6b4;">{{ copyLabel }}</button>
+      </div>
+      <span style="font-size:10.5px;color:#4c5a6a;">Opens in your browser — outside Planning Coach.</span>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isViewer }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:50%;transform:translateX(-50%);width:390px;max-width:100vw;bottom:0;z-index:51;max-height:82%;overflow:auto;background:#11161d;border-top:1px solid #2c4a63;border-radius:18px 18px 0 0;padding:14px 16px 24px;display:flex;flex-direction:column;gap:12px;">
+      <div style="width:38px;height:4px;border-radius:2px;background:#2a3340;align-self:center;"></div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:14px;font-weight:700;color:#eef1f6;">{{ vName }}</div>
+          <div style="font-size:11px;color:{{ vStatusColor }};">{{ vStatus }}</div>
+        </div>
+        <button onClick="{{ closeSheet }}" style="width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid #232b35;color:#9aa6b4;font-size:16px;">✕</button>
+      </div>
+      <div style="height:210px;background:#0e1420;border:1px solid #223046;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#4c6584" stroke-width="1.5"/><circle cx="9" cy="10" r="1.8" stroke="#4c6584" stroke-width="1.4"/><path d="M4 18l5-5 4 4 3-3 4 4" stroke="#4c6584" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <span style="font-size:11.5px;color:#6e7886;">Full-size image · pinch to zoom</span>
+      </div>
+      <sc-if value="{{ vHasText }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ vToggleText }}" style="align-self:flex-start;min-height:44px;background:transparent;border:1px solid #2c3a4b;border-radius:10px;padding:0 14px;font-size:13px;font-weight:600;color:#bcd2ec;">{{ vTextCta }}</button>
+        <sc-if value="{{ vTextShown }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#0a0e14;border:1px solid #1d2530;border-radius:10px;padding:12px 13px;display:flex;flex-direction:column;gap:6px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#6a7686;text-transform:uppercase;">Text read from this file</span>
+            <p style="font-size:12.5px;color:#aeb8c5;line-height:1.65;white-space:pre-line;">{{ vText }}</p>
+            <span style="font-size:10.5px;color:#5f6b7a;">Some of this was hard to read — worth checking against the original. Select any passage to act on it.</span>
+          </div>
+        </sc-if>
+      </sc-if>
+      <sc-if value="{{ vPending }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:12px;color:#c69a55;line-height:1.5;">Still reading this one. You can decide about the message now — I'll have the text later.</p>
+      </sc-if>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid #1d2530;padding-top:12px;">
+        <button style="flex:1;min-height:48px;background:#1d365a;border:1px solid #3d6da6;border-radius:10px;font-size:13px;font-weight:600;color:#d7e6f8;white-space:nowrap;">Open original ↗</button>
+        <button style="flex:1;min-height:48px;background:transparent;border:1px solid #2c3a4b;border-radius:10px;font-size:13px;font-weight:600;color:#bcd2ec;white-space:nowrap;">Use as a reference</button>
+      </div>
+    </div>
+    </sc-if>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;sectionsDefault&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;first-open&quot;,&quot;all-collapsed&quot;],&quot;default&quot;:&quot;first-open&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Reading&quot;}}">
+class Component extends DCLogic {
+  state = {
+    open: { s1: true, s2: false, s3: false, s4: false, s5: false },
+    sheet: null, // 'decide' | 'files' | 'noticed' | 'link' | 'viewer'
+    noticedState: 'idle', // idle | loading | ready
+    pop: null, copied: false,
+    viewer: null, vTextShown: false,
+    sizeIdx: 0,
+    sel: null, capture: null, toast: null,
+    resolvedF: { f1: false, f2: false, f3: false },
+    f2Reasons: false, msgDone: false, dismissedOnce: false
+  };
+  BSF = {
+    f1: { quote: 'August 8th at 6PM EST', pre: { dateLabel: 'Saturday, August 8, 2026', timeLabel: '6:00 PM EST' } },
+    f2: { quote: 'August 23rd from 5-6PM', pre: { dateLabel: 'Sunday, August 23, 2026', timeLabel: '5:00–6:00 PM' } },
+    f3: { quote: 'August 10th', pre: { dateLabel: 'Monday, August 10, 2026', timeLabel: null } }
+  };
+  _un() { const r = this.state.resolvedF; return ['f1', 'f2', 'f3'].filter(k => !r[k]); }
+  _matchF(t) { if (!t) return null; if (/August 8/i.test(t)) return 'f1'; if (/August 23/i.test(t)) return 'f2'; if (/August 10/i.test(t)) return 'f3'; return null; }
+  _resolveF(id, toastMsg) {
+    const r = { ...this.state.resolvedF, [id]: true };
+    const un = ['f1', 'f2', 'f3'].filter(k => !r[k]);
+    const inBackstop = this.state.sheet === 'backstop' || (this.state.sheet === 'capture' && this.state.capture && this.state.capture.f);
+    const finished = un.length === 0 && inBackstop;
+    this.setState({ resolvedF: r, f2Reasons: false, sheet: finished ? null : (inBackstop ? 'backstop' : this.state.sheet), msgDone: this.state.msgDone || finished });
+    if (finished) this._showToast('That was the last one — this message is done.');
+    else if (toastMsg) this._showToast(toastMsg);
+  }
+  componentDidMount() {
+    if ((this.props.sectionsDefault ?? 'first-open') === 'all-collapsed') {
+      this.setState({ open: { s1: false, s2: false, s3: false, s4: false, s5: false } });
+    }
+    // §AR.1.4 — a selection in the source is the request AND the evidence
+    this._onSel = () => {
+      clearTimeout(this._selT);
+      this._selT = setTimeout(() => {
+        const sel = window.getSelection();
+        const t = sel && sel.toString().trim();
+        if (!t) { if (this.state.sel) this.setState({ sel: null }); return; }
+        const n = sel.anchorNode, el = n && (n.nodeType === 1 ? n : n.parentElement);
+        if (!el || !el.closest('#em-body-m')) return;
+        this.setState({ sel: { text: t } });
+      }, 250);
+    };
+    document.addEventListener('selectionchange', this._onSel);
+  }
+  componentWillUnmount() { document.removeEventListener('selectionchange', this._onSel); }
+  _parseDate(t) {
+    if (!t) return null;
+    const mm = t.match(/(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})/i);
+    if (!mm) return null;
+    const months = { january:0, february:1, march:2, april:3, may:4, june:5, july:6, august:7, september:8, october:9, november:10, december:11 };
+    const d = new Date(2026, months[mm[1].toLowerCase()], parseInt(mm[2], 10));
+    const dateLabel = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    let timeLabel = null;
+    const range = t.match(/(\d{1,2})\s*-\s*(\d{1,2})\s*(AM|PM)/i);
+    const single = t.match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
+    if (range) timeLabel = range[1] + ':00–' + range[2] + ':00 ' + range[3].toUpperCase();
+    else if (single) timeLabel = single[1] + ':' + (single[2] || '00') + ' ' + single[3].toUpperCase() + (/(EST|EDT)/i.test(t) ? ' EST' : '');
+    return { dateLabel, timeLabel };
+  }
+  _showToast(t) { clearTimeout(this._tt); this.setState({ toast: t }); this._tt = setTimeout(() => this.setState({ toast: null }), 3200); }
+  FILES = {
+    logo:   { name: 'arts-collective-logo.png', status: 'Text is ready', color: '#6bbd8f', text: 'Very little text was found in this one — it looks like artwork. "Arts Collective"' },
+    dorm:   { name: 'room-layout.png', status: 'Text is ready', color: '#6bbd8f', text: 'Room layout, top-down.\nBed: 84 1/4" long · 36" wide · 71 1/2" high\nDesk: 42" long · 28 1/4" wide · 28 3/4" high\nDresser: 24" long · 22 1/2" wide · 50" high\nMattress (twin XL): 79" long · 33" wide' },
+    closet: { name: 'storage-dimensions.png', status: 'Still reading it — you can decide now', color: '#c69a55', text: null },
+    art:    { name: 'board-art.png', status: 'Text is ready', color: '#6bbd8f', text: 'Very little text was found in this one — it looks like artwork.' }
+  };
+  SIZES = [
+    { label: 'Comfortable', fz: '15px', lh: '1.7' },
+    { label: 'Large', fz: '17px', lh: '1.78' },
+    { label: 'Spacious', fz: '18.5px', lh: '1.95' }
+  ];
+  renderVals() {
+    const s = this.state, open = s.open;
+    const caret = (k) => (open[k] ? '▾' : '▸');
+    const v = s.viewer ? this.FILES[s.viewer] : null;
+    const size = this.SIZES[s.sizeIdx];
+    return {
+      s1Open: open.s1, s2Open: open.s2, s3Open: open.s3, s4Open: open.s4, s5Open: open.s5,
+      s1Caret: caret('s1'), s2Caret: caret('s2'), s3Caret: caret('s3'), s4Caret: caret('s4'), s5Caret: caret('s5'),
+      toggleSec: (e) => {
+        const k = e.currentTarget.dataset.sec;
+        this.setState(st => ({ open: { ...st.open, [k]: !st.open[k] } }));
+      },
+      bodyFz: size.fz, bodyLh: size.lh,
+      cycleTextSize: () => this.setState(st => ({ sizeIdx: (st.sizeIdx + 1) % this.SIZES.length })),
+      sheetOpen: !!s.sheet,
+      isDecide: s.sheet === 'decide', isFiles: s.sheet === 'files', isNoticed: s.sheet === 'noticed',
+      isLink: s.sheet === 'link', isViewer: s.sheet === 'viewer',
+      openSheet: (e) => this.setState({ sheet: e.currentTarget.dataset.sheet }),
+      closeSheet: () => {
+        const wasBackstop = this.state.sheet === 'backstop';
+        this.setState({ sheet: null, pop: null, viewer: null, vTextShown: false, capture: null, f2Reasons: false, dismissedOnce: this.state.dismissedOnce || wasBackstop });
+      },
+      openNoticed: () => {
+        // opening is the request — content is fetched then (§D.3, §E.7)
+        if (this.state.noticedState === 'idle') {
+          this.setState({ sheet: 'noticed', noticedState: 'loading' });
+          setTimeout(() => this.setState({ noticedState: 'ready' }), 450);
+        } else this.setState({ sheet: 'noticed' });
+      },
+      noticedLoading: s.noticedState === 'loading',
+      noticedReady: s.noticedState === 'ready',
+      linkClick: (e) => {
+        const d = e.currentTarget.dataset;
+        this.setState({ sheet: 'link', pop: { name: d.name, dest: d.dest }, copied: false });
+      },
+      popName: s.pop ? s.pop.name : '', popDest: s.pop ? s.pop.dest : '',
+      popCopy: () => this.setState({ copied: true }),
+      copyLabel: s.copied ? 'Copied' : 'Copy link',
+      openFile: (e) => this.setState({ sheet: 'viewer', viewer: e.currentTarget.dataset.file, vTextShown: false }),
+      vName: v ? v.name : '', vStatus: v ? v.status : '', vStatusColor: v ? v.color : '#6bbd8f',
+      vHasText: !!(v && v.text), vPending: !!(v && !v.text),
+      vTextShown: s.vTextShown, vText: v ? v.text : '',
+      vTextCta: s.vTextShown ? 'Hide it' : 'See the text I read',
+      vToggleText: () => this.setState(st => ({ vTextShown: !st.vTextShown })),
+      selOpen: !!s.sel && !s.sheet,
+      selSnippet: s.sel ? (s.sel.text.length > 56 ? s.sel.text.slice(0, 56) + '…' : s.sel.text) : '',
+      selClear: () => { window.getSelection().removeAllRanges(); this.setState({ sel: null }); },
+      openCapture: (e) => {
+        const a = e.currentTarget.dataset.action;
+        const t = this.state.sel ? this.state.sel.text : null;
+        window.getSelection().removeAllRanges();
+        this.setState({ sheet: 'capture', capture: { action: a, text: t }, sel: null });
+      },
+      dateClick: (e) => {
+        const d = e.currentTarget.dataset;
+        window.getSelection().removeAllRanges();
+        this.setState({ sheet: 'capture', capture: { action: 'Add a deadline', text: d.quote, pre: { dateLabel: d.dateLabel, timeLabel: d.timeLabel || null } }, sel: null });
+      },
+      isCapture: s.sheet === 'capture',
+      capAction: s.capture ? s.capture.action : '',
+      capHasText: !!(s.capture && s.capture.text),
+      capNoText: !!(s.capture && !s.capture.text),
+      capText: s.capture && s.capture.text ? (s.capture.text.length > 200 ? s.capture.text.slice(0, 200) + '…' : s.capture.text) : '',
+      ...(() => {
+        const c = s.capture, isDate = !!(c && c.action === 'Add a deadline' && c.text);
+        const parsed = c && c.pre ? c.pre : (isDate ? this._parseDate(c.text) : null);
+        return {
+          capParseOk: !!parsed,
+          capParseFail: isDate && !parsed,
+          capSrcLabel: c && c.pre ? 'Written in the email' : 'I read this as',
+          capEvidenceNote: c && c.pre ? 'Written in the email — highlighted because it\'s a date the sender wrote, not a guess.' : 'From this email · you selected it. This passage is also the evidence the new object will carry.',
+          capDateLabel: parsed ? parsed.dateLabel : '',
+          capTimeLabel: parsed ? parsed.timeLabel : '', capHasTime: !!(parsed && parsed.timeLabel),
+          capPrimary: parsed ? 'Yes — add this deadline ›' : 'Continue to the form ›',
+          capConfirm: () => {
+            const fromBackstop = !!(c && c.f);
+            this.setState({ sheet: fromBackstop ? 'backstop' : null, capture: null });
+            if (parsed) {
+              const fid = (c && c.f) || this._matchF(c && c.text);
+              if (fid) this._resolveF(fid, 'Deadline added as a loose piece — it still needs a place on your board.');
+              else this._showToast('Deadline added as a loose piece — it still needs a place on your board.');
+            } else this._showToast((c ? c.action : '') + ' — the form opens here in the real flow.');
+          }
+        };
+      })(),
+      ...(() => {
+        const un = this._un();
+        let stChip = 'waiting on you', stBg = '#15110a', stBd = '#6e5226', stCol = '#eec288';
+        if (s.msgDone) { stChip = 'done'; stBg = '#0e1a13'; stBd = '#2c5f43'; stCol = '#9fd4b5'; }
+        else if (s.dismissedOnce && un.length) stChip = un.length === 1 ? 'one thing to check' : un.length + ' things to check';
+        return {
+          stChip, stBg, stBd, stCol,
+          isBackstop: s.sheet === 'backstop',
+          bsCountLabel: un.length === 1 ? 'one possible action' : un.length + ' possible actions',
+          f1Un: !s.resolvedF.f1, f2Un: !s.resolvedF.f2, f3Un: !s.resolvedF.f3,
+          f2ReasonsOpen: s.f2Reasons, f2Caret: s.f2Reasons ? '▴' : '▾',
+          noAction: () => {
+            if (!this._un().length) { this.setState({ sheet: null, msgDone: true }); this._showToast('Nothing else here — this message is done.'); }
+            else this.setState({ sheet: 'backstop', f2Reasons: false });
+          },
+          bsAdd: (e) => { const id = e.currentTarget.dataset.f; const f = this.BSF[id]; this.setState({ sheet: 'capture', capture: { action: 'Add a deadline', text: f.quote, pre: f.pre, f: id } }); },
+          bsKeep: (e) => { const id = e.currentTarget.dataset.f; this._resolveF(id, id === 'f2' ? 'Acknowledged — it stays counted under Needs attention until addressed.' : 'Kept visible — a light follow-up now exists.'); },
+          bsNotNeeded: (e) => this._resolveF(e.currentTarget.dataset.f, 'Ruled out — it won\'t come back.'),
+          f2ToggleReasons: () => this.setState(st => ({ f2Reasons: !st.f2Reasons })),
+          f2Reason: (e) => this._resolveF('f2', 'Reason recorded — "' + e.currentTarget.dataset.reason + '".')
+        };
+      })(),
+      toastOpen: !!s.toast, toastText: s.toast || ''
+    };
+  }
+}
+</script>
+</body>
+</html>
