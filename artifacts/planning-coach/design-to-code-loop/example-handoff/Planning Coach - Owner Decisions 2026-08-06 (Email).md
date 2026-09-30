@@ -1,0 +1,10 @@
+# Planning Coach — Owner Decisions 2026-08-06 (Email Reading Surface)
+
+Recorded from the owner, 2026-08-06.
+
+1. **§F.9f amended to the student-validated vocabulary.** *partly done* → **"partly decided"**; *back {when}* → **"handled for now · back {day}"**. Provenance: student validation 2026-08-05. Folds into Email Interaction Contract v0.5. The port's chips are now the ratified words.
+2. **"Goes to:" characterization ratified** (Reading Surface Addendum §RD.5.3 → resolved). The plain-language destination line ("a PDF on the housing site", "asks you to sign in") is permitted **unprompted** as non-conclusive source-derived structure. Mechanical derivation only (content type, known domains); never a claim about meaning, requirement, or relevance. Live once ASK-3/ASK-8 serve link data.
+3. **Backend priority:** ASK-8 (serve `html_sanitized`) first; ASK-9 (evidence span on actions) and ASK-10 (passage on backstop findings) ride along in the same effort.
+4. **Cutover sign-off delegated to Claude Design** — round 2 screenshots (MoreV2, backstop required-finding, Keep-visible wire) reviewed by Design; if faithful, Design authorizes cutover without a further owner gate.
+5. **Reference picker: search-first, not browse.** A real board holds hundreds of candidates. The picker leads with search; an unprompted **"Likely" shelf** may be derived from structural facts only: created-from-this-message/thread provenance, dated within the coming weeks, recently touched. No model-derived relevance ranking. New **ASK-13: a searchable reference-candidates route** (query + kind filter + the three structural facts for the shelf).
+6. **Student-facing vocabulary: "deadline", not "date".** The action is **"Add a deadline"**; noticing/backstop cards say "A deadline: …"; the picker's kind is "Deadlines". "Date" remains acceptable inside interpretation labels describing calendar values ("a date the sender wrote"). System-internal names (Date piece, `date_piece`, `add_date` action type) are unchanged — this is presentation vocabulary, joining the §F.9f amendment in v0.5.
